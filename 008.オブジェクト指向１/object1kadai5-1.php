@@ -48,7 +48,8 @@
     }else{
         echo 'ログインに成功しました。三秒後にサービストップに移動します';
         echo '<meta http-equiv="refresh" content="3;URL='.INPUT.'">';
-    }
+        session_start();
+        $_SESSION['last_access']=mktime();}
     ?>
 </body>
 </html>

@@ -4,8 +4,7 @@ if(!isset($_POST["username"]
 )){$username=null;}
 elseif($_POST["username"]==null){$username=null;}
 else{$username=$_POST["username"];
-//  function syougou(){
-//  global $username;
+
   try{
   $pdo_object= new PDO('mysql:host=localhost;dbname=zaikokanri;charset=utf8','imabe','ppu');
   }
@@ -60,6 +59,41 @@ $pdo_object=NULL;
 }
 
 
+function session_chk(){
+    $period_time = 3600;
+    session_start();
+    if(!empty($_SESSION['last_access'])){
+        if((mktime() - $_SESSION['last_access']) > $period_time){
+            echo '<meta http-equiv="refresh" content="0;URL='.REDIRECT.'?mode=timeout">';
+            logout_s();
+            exit;
+        }else{
+            $_SESSION['last_access']=mktime();
+        }
+    }else{
+        echo '<meta http-equiv="refresh" content="0;URL='.REDIRECT.'">';
+        exit;
+    }
+}
+
+function logout_s(){
+    session_unset();
+    if (isset($_COOKIE['PHPSESSID'])) {
+        setcookie('PHPSESSID', '', time() - 1800, '/');
+    }
+    session_destroy();
+}
+function logout(){
+    session_unset();
+    if (isset($_COOKIE['PHPSESSID'])) {
+        setcookie('PHPSESSID', '', time() - 1800, '/');
+    }
+    //session_destroy();
+}
+
+
 const LOGIN = 'object1kadai5-1.php';
 const INPUT = 'object1kadai5-2.php';
 const SHOW = 'object1kadai5-3.php';
+const REDIRECT = 'object1kadai5-5.php';
+const LOGOUT ='object1kadai5-6.php';

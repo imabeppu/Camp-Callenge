@@ -1,5 +1,6 @@
 <?php
 require_once 'object1kadai5-4.php';
+session_chk();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -38,7 +39,7 @@ else{	$syubetu=$_POST["syubetu"];
 }
 ?>
 <a href=<?php echo SHOW; ?> >商品一覧</a>
-<a href=<?php echo LOGIN; ?> >ログアウト</a>
+<a href=<?php echo LOGOUT; ?> >ログアウト</a>
 
 </body>
 </html>
