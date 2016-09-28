@@ -13,13 +13,6 @@ function connect2MySQL(){
      exit;
      }
 }
-//テスト用
-function connect2MySQL(){
-        $pdo = new PDO('mysql:host=localhost;dbname=challenge_db;charset=utf8','imabe','ppu');
-        return $pdo;
-      }
-
-
 
 //課題７　データベースアクセスの処理をinsert_result.phpからdbaccesUtil.phpに切り離し。元のページで使えるように関数にした
 function insert($pdo,$name,$birthday,$tell,$type,$comment){
