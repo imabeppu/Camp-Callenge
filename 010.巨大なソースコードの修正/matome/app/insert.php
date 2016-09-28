@@ -80,13 +80,14 @@ session_start();
 
     自己紹介文
     <br>
-    <textarea name="comment" rows=10 cols=50 style="resize:none" wrap="hard" ><?php if(isset($_SESSION['comment'])){echo $_SESSION['comment'];}//課題4　再入力の際の初期値 ?></textarea><br><br>
+    <textarea name="comment" rows=10 cols=50 style="resize:none" wrap="hard" ><?php if(isset($_SESSION['comment'])){echo $_SESSION['comment'];}//課題4　再入力の際の初期値
+    ?></textarea><br><br>
 
     <input type="submit" name="btnSubmit" value="確認画面へ">
     </form>
     <br>
     <?php
-　//課題 1トップページへのリンクを実装
+    //課題１　トップページへのリンクを実装
     echo return_top();
 //課題４　使用したセッション情報が次に入力する際に残らないよう消す
   $_SESSION = array();

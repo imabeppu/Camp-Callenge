@@ -62,18 +62,10 @@
         //課題3　どの入力項目が不完全か表示
         if(empty($_POST['name'])){
           echo '名前が未入力です'.'<br>';
-
-        }
-        //課題４　入力情報をセッションで保存
-        else{
-          $name=$_POST['name'];
+          //課題４　セッションに入力情報を保存
+        }else{$name=$_POST['name'];
           $_SESSION['name']=$name;
         }
-      if(empty($_POST['type'])){
-        echo '種別が未入力です'.'<br>';
-      }else{$type=$_POST['type'];
-        $_SESSION['type']=$type;
-      }
       if(empty($_POST['tell'])){
         echo '電話番号が未入力です'.'<br>';
       }else{$tell=$_POST['tell'];
